@@ -46,7 +46,7 @@ app.get('/games/:id/ads', async (request, response) => {
       createdAt: 'desc',
     }
   })
-  const formatedAds = ads.map(ad => {
+  const formatedAds:Object = ads.map(ad => {
     return {
       ...ad,
       weekDays: ad.weekDays.split(',').map((day: any) => {
@@ -66,7 +66,7 @@ app.get('/games/:id/ads', async (request, response) => {
 })
 
 app.get('/ads/:id/discord', async (request, response) => {
-  const adId = request.params.id;
+  const adId: string = request.params.id;
 
   const ad = await prisma.ad.findUniqueOrThrow({
     select: {
@@ -106,4 +106,4 @@ app.post('/games/:id/ads', async (request, response) => {
   return response.status(201).json(ad); 
 })
 
-app.listen(PORT)
+app.listen(PORT, () => console.log( `Aplicação rodando na porta ${PORT}`));
