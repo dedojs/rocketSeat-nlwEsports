@@ -2,7 +2,7 @@ import './styles/main.css';
 import { useState, useEffect } from 'react'
 import logoImg from './assets/Logo.svg';
 import { GameBanner } from './components/GameBanner';
-import { CreateAdBanner } from './components/CreateAdBanner';
+import { Modal } from './components/Modal';
 
 interface Game {
   id: string;
@@ -46,7 +46,7 @@ function App() {
         }
       </div>
 
-      <CreateAdBanner />
+      <Modal />
      
     </div>
   )
